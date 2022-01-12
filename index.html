@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css\main.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-12" id="main">
+                <h2 class="heading mt-3">To Do List</h2><br>
+                <div class="input-group border border-success">
+                    <input type="text" class="form-control" id="myText" placeholder="Name..">
+                    <div class="input-group-append">
+                        <button type="submit" class="btn text-success" onclick="myFunction()">Add Item</button>
+                    </div>
+                </div>
+                <span id="me"></span>
+                <br>
+                <ul id="demo">
+                    <li>Javascript</li>
+                    <li>Node.js</li>
+                    <li>Java</li>
+                </ul>
+
+            </div>
+        </div>
+    </div>
+
+
+
+    <script>
+        function myFunction() {
+            document.getElementById("me").innerHTML = "";
+            var li = document.createElement("li");
+            var x = document.getElementById("myText").value;
+            var t = document.createTextNode(x);
+            li.appendChild(t);
+            if (x === '') {
+                document.getElementById("me").innerHTML = "please enter a value";
+            } else {
+                let demo = document.getElementById("demo");
+
+                li.textContent = x;
+                demo.appendChild(li);
+                demo.insertBefore(li, demo.childNodes[0]);
+            }
+            //close
+            document.getElementById("myText").value = "";
+
+            var span = document.createElement("button");
+            var txt = document.createTextNode("X");
+            span.className = "close";
+            span.appendChild(txt);
+            li.appendChild(span);
+
+            for (i = 0; i < close.length; i++) {
+                close[i].onclick = function () {
+                    var div = this.parentElement;
+                    div.style.display = "none";
+                }
+            }
+            //add
+            document.getElementById("myText").value = "";
+
+            var span = document.createElement("button");
+            var txt = document.createTextNode("✔");
+            span.className = "edit";
+            span.appendChild(txt);
+            li.appendChild(span);
+
+            for (i = 0; i < closebtns.length; i++) {
+                closebtns[i].addEventListener("click", function () {
+                    this.parentElement.classList.toggle('li');
+                }
+
+                );
+            }
+            //edit
+            document.getElementById("myText").value = "";
+
+            var span = document.createElement("button");
+            var txt = document.createTextNode("+");
+            span.className = "rename";
+            span.appendChild(txt);
+            li.appendChild(span);
+
+            for (i = 0; i < reenter.length; i++) {
+                reenter[i].addEventListener("click", function () {
+                    document.querySelector('#myText').value = this.parentElement.innerText;
+                    this.parentElement.innerText = this.parentElement.remove();
+
+                });
+            }
+
+
+        }
+
+        //delete
+
+        var list = document.getElementsByTagName("LI");
+        var i;
+        for (i = 0; i < list.length; i++) {
+            var span = document.createElement("button");
+            var txt = document.createTextNode("X");
+            span.className = "close";
+            span.appendChild(txt);
+            list[i].appendChild(span);
+        }
+
+        //  close 
+        var close = document.getElementsByClassName("close");
+        var i;
+        for (i = 0; i < close.length; i++) {
+            close[i].onclick = function () {
+                var div = this.parentElement;
+                div.style.display = "none";
+            }
+        }
+
+        var list = document.getElementsByTagName("LI");
+        var i;
+        for (i = 0; i < list.length; i++) {
+            var span = document.createElement("button");
+            var txt = document.createTextNode("✔");
+            span.className = "edit";
+            span.appendChild(txt);
+            list[i].appendChild(span);
+        }
+        var closebtns = document.getElementsByClassName("edit");
+        var i;
+
+        for (i = 0; i < closebtns.length; i++) {
+            closebtns[i].addEventListener("click", function () {
+                this.parentElement.classList.toggle('li');
+            }
+
+            );
+        }
+      
+        //edit
+        document.getElementById("myText").value = "";
+        var list = document.getElementsByTagName("LI");
+        var i;
+        for (i = 0; i < list.length; i++) {
+            var span = document.createElement("button");
+            var txt = document.createTextNode("+");
+            span.className = "rename";
+            span.appendChild(txt);
+            list[i].appendChild(span);
+        }
+        var list = document.getElementById('demo').innerText;
+        var reenter = document.getElementsByClassName("rename");
+        var i;
+        for (i = 0; i < reenter.length; i++) {
+            reenter[i].addEventListener("click", function () {
+                document.querySelector('#myText').value = this.parentElement.innerText;
+                this.parentElement.innerText = this.parentElement.remove();
+
+            });
+        }
+
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
+</body>
+
+</html>;

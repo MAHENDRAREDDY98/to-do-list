@@ -1,0 +1,40 @@
+@import "node_modules/bootstrap/scss/bootstrap.scss";
+@import "node_modules/font-awesome/scss/font-awesome";
+
+#main{
+    margin-top: 5rem;
+    background-color: rgb(235, 235, 235);
+    width: 60%;
+    text-align: center;
+    text-decoration: none;
+    height: 500px;
+}
+#demo li{
+    list-style: none;
+    text-align: left;
+    padding: 10px 10px;
+    background-color: ghostwhite;
+    margin-top: 10px;
+    font-weight: bold;
+    font-size: 15px;
+}
+#me{
+    text-align: left;
+    color: red;
+}
+.close{
+    color: black;
+    float: right;
+}
+.edit{
+    float: right;
+}
+.li::before{
+   text-align: left;
+   color: red;
+   content: "✔";
+   
+}
+.rename{
+    float: right;
+}
