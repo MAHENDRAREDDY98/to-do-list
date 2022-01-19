@@ -33,11 +33,15 @@
    text-align: left;
    color: red;
    content: "✔";
-   
+   padding-right: 20px;
+   text-decoration: none;
 }
 .li{
-    text-decoration: line-through;
+    text-decoration: line-through;  
+    color: white;
 }
+
 .rename{
     float: right;
 }
+

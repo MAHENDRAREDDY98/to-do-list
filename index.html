@@ -13,6 +13,7 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-12" id="main">
+
                 <h2 class="heading mt-3">To Do List</h2><br>
                 <div class="input-group border border-success">
                     <input type="text" class="form-control" id="myText" placeholder="Name..">
@@ -28,6 +29,7 @@
                     <li>Java</li>
                 </ul>
 
+
             </div>
         </div>
     </div>
@@ -40,6 +42,7 @@
             var li = document.createElement("li");
             var x = document.getElementById("myText").value;
             var t = document.createTextNode(x);
+            li.id = "list";
             li.appendChild(t);
             if (x === '') {
                 document.getElementById("me").innerHTML = "please enter a value";
@@ -74,11 +77,17 @@
             span.appendChild(txt);
             li.appendChild(span);
 
-            for (i = 0; i < closebtns.length; i++) {
-                closebtns[i].addEventListener("click", function () {
-                    this.parentElement.classList.toggle('li');
+            for (i = 0; i < edit.length; i++) {
+                edit[i].addEventListener("click", function () {
+                    if (this.parentElement.classList.toggle('li') == true) {
+                        this.parentElement.childNodes[3].disabled = true;
+                        this.parentElement.style.backgroundColor = "gray";
+                    } else {
+                        this.parentElement.childNodes[3].disabled = false;
+                        this.parentElement.style.backgroundColor = "ghostwhite";
+                    }
+                  
                 }
-
                 );
             }
             //edit
@@ -92,7 +101,7 @@
 
             for (i = 0; i < reenter.length; i++) {
                 reenter[i].addEventListener("click", function () {
-                    document.querySelector('#myText').value = this.parentElement.innerText;
+                    document.querySelector('#myText').value = this.parentElement.childNodes[0].textContent;
                     this.parentElement.innerText = this.parentElement.remove();
 
                 });
@@ -113,7 +122,6 @@
             list[i].appendChild(span);
         }
 
-        //  close 
         var close = document.getElementsByClassName("close");
         var i;
         for (i = 0; i < close.length; i++) {
@@ -122,7 +130,7 @@
                 div.style.display = "none";
             }
         }
-
+        //add
         var list = document.getElementsByTagName("LI");
         var i;
         for (i = 0; i < list.length; i++) {
@@ -132,17 +140,23 @@
             span.appendChild(txt);
             list[i].appendChild(span);
         }
-        var closebtns = document.getElementsByClassName("edit");
+        var edit = document.getElementsByClassName("edit");
+        var reenter = document.getElementsByClassName("rename");
+
         var i;
-
-        for (i = 0; i < closebtns.length; i++) {
-            closebtns[i].addEventListener("click", function () {
-                this.parentElement.classList.toggle('li');
+        for (i = 0; i < edit.length; i++) {
+            edit[i].addEventListener("click", function () {
+                if (this.parentElement.classList.toggle('li') == true) {
+                    this.parentElement.childNodes[3].disabled = true;
+                    this.parentElement.style.backgroundColor = "gray";
+                } else {
+                    this.parentElement.childNodes[3].disabled = false;
+                    this.parentElement.style.backgroundColor = "ghostwhite";
+                }
             }
-
             );
         }
-      
+
         //edit
         document.getElementById("myText").value = "";
         var list = document.getElementsByTagName("LI");
@@ -159,14 +173,15 @@
         var i;
         for (i = 0; i < reenter.length; i++) {
             reenter[i].addEventListener("click", function () {
-                document.querySelector('#myText').value = this.parentElement.innerText;
+                document.querySelector('#myText').value = this.parentElement.childNodes[0].textContent;
                 this.parentElement.innerText = this.parentElement.remove();
-
             });
+
         }
 
-    </script>
 
+
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
