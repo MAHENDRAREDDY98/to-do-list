@@ -77,6 +77,10 @@
             span.appendChild(txt);
             li.appendChild(span);
 
+            var edit = document.getElementsByClassName("edit");
+            var reenter = document.getElementsByClassName("rename");
+
+            var i;
             for (i = 0; i < edit.length; i++) {
                 edit[i].addEventListener("click", function () {
                     if (this.parentElement.classList.toggle('li') == true) {
@@ -86,13 +90,11 @@
                         this.parentElement.childNodes[3].disabled = false;
                         this.parentElement.style.backgroundColor = "ghostwhite";
                     }
-                  
                 }
                 );
             }
-            //edit
-            document.getElementById("myText").value = "";
 
+            //edit
             var span = document.createElement("button");
             var txt = document.createTextNode("+");
             span.className = "rename";
@@ -103,7 +105,6 @@
                 reenter[i].addEventListener("click", function () {
                     document.querySelector('#myText').value = this.parentElement.childNodes[0].textContent;
                     this.parentElement.innerText = this.parentElement.remove();
-
                 });
             }
 
@@ -168,7 +169,7 @@
             span.appendChild(txt);
             list[i].appendChild(span);
         }
-        var list = document.getElementById('demo').innerText;
+      
         var reenter = document.getElementsByClassName("rename");
         var i;
         for (i = 0; i < reenter.length; i++) {
