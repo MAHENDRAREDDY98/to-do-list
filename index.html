@@ -62,6 +62,7 @@
             span.appendChild(txt);
             li.appendChild(span);
 
+            var i;
             for (i = 0; i < close.length; i++) {
                 close[i].onclick = function () {
                     var div = this.parentElement;
@@ -82,18 +83,23 @@
 
             var i;
             for (i = 0; i < edit.length; i++) {
+               
                 edit[i].addEventListener("click", function () {
-                    if (this.parentElement.classList.toggle('li') == true) {
-                        this.parentElement.childNodes[3].disabled = true;
-                        this.parentElement.style.backgroundColor = "gray";
-                    } else {
-                        this.parentElement.childNodes[3].disabled = false;
-                        this.parentElement.style.backgroundColor = "ghostwhite";
-                    }
-                }
-                );
+                 this.parentElement.classList.add('li')
+                 this.parentElement.childNodes[3].disabled = true;
+                 this.parentElement.style.backgroundColor = "gray";
+                })
             }
-
+            var i;
+            for (i = 0; i < edit.length; i++) {
+               
+                edit[i].addEventListener("dblclick", function () {
+                 this.parentElement.classList.remove('li')
+                 this.parentElement.childNodes[3].disabled = false;
+                 this.parentElement.style.backgroundColor = "ghostwhite";
+                })
+            }
+      
             //edit
             var span = document.createElement("button");
             var txt = document.createTextNode("+");
@@ -142,21 +148,26 @@
             list[i].appendChild(span);
         }
         var edit = document.getElementsByClassName("edit");
-        var reenter = document.getElementsByClassName("rename");
+            var reenter = document.getElementsByClassName("rename");
 
-        var i;
-        for (i = 0; i < edit.length; i++) {
-            edit[i].addEventListener("click", function () {
-                if (this.parentElement.classList.toggle('li') == true) {
-                    this.parentElement.childNodes[3].disabled = true;
-                    this.parentElement.style.backgroundColor = "gray";
-                } else {
-                    this.parentElement.childNodes[3].disabled = false;
-                    this.parentElement.style.backgroundColor = "ghostwhite";
-                }
+            var i;
+            for (i = 0; i < edit.length; i++) {
+               
+                edit[i].addEventListener("click", function () {
+                 this.parentElement.classList.add('li')
+                 this.parentElement.childNodes[3].disabled = true;
+                 this.parentElement.style.backgroundColor = "gray";
+                })
             }
-            );
-        }
+            var i;
+            for (i = 0; i < edit.length; i++) {
+               
+                edit[i].addEventListener("dblclick", function () {
+                 this.parentElement.classList.remove('li')
+                 this.parentElement.childNodes[3].disabled = false;
+                 this.parentElement.style.backgroundColor = "ghostwhite";
+                })
+            }
 
         //edit
         document.getElementById("myText").value = "";
@@ -169,7 +180,7 @@
             span.appendChild(txt);
             list[i].appendChild(span);
         }
-      
+
         var reenter = document.getElementsByClassName("rename");
         var i;
         for (i = 0; i < reenter.length; i++) {
